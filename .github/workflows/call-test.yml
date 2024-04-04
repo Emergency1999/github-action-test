@@ -1,0 +1,25 @@
+on:
+  workflow_call:
+    inputs:
+      hostname:
+        type: string
+        description: 'Hostname'
+        required: true
+      username:
+        type: string
+        description: 'Username'
+        required: true
+
+    secrets:
+      SECRET:
+        required: true
+
+jobs:
+  reusable_workflow_job:
+    runs-on: local
+    steps:
+    - run: |
+        echo "Hostname is ${{ inputs.hostname }}"
+        echo "Username is ${{ inputs.username }}"
+        echo "SECRET: ${{ secrets.SECRET }}"
+        echo "VAR1: ${{ vars.VAR1 }}"

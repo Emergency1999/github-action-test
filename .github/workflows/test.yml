@@ -23,3 +23,11 @@ jobs:
           echo "t2 is $t2"
           echo "SECRET1: ${{ secrets.SECRET1 }} TEST"
           echo "VAR1: ${{ vars.VAR1 }}"
+      
+      - name: Run reusable_workflow_job
+        uses: ./.github/workflows/call-test
+        with:
+          hostname: TestHost
+          username: TestUser
+          SECRET: ${{ secrets.SECRET1 }}
+          # VAR1: ${{ vars.VAR1 }}
