@@ -8,11 +8,18 @@ on:
 
 
 jobs:
-  test:
+  test1-test2:
     runs-on: local
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Debug print job name
-        run: echo "Job name is ${{ github.job }}"
+        run: |
+          echo "Job name is ${{ github.job }}"
+          t1=$(echo ${{ github.job }} | cut -d'-' -f1)
+          t2=$(echo ${{ github.job }} | cut -d'-' -f2)
+          echo "t1 is $t1"
+          echo "t2 is $t2"
+          echo "SECRET1: ${{ secrets.SECRET1 }}"
+          echo "VAR1: ${{ env.VAR1 }}"
