@@ -25,7 +25,7 @@ jobs:
           echo "VAR1: ${{ vars.VAR1 }}"
       
       - name: Run reusable_workflow_job
-        uses: ./.github/workflows/call-test
+        uses: ./.github/workflows/call-test.yml
         with:
           hostname: TestHost
           username: TestUser
