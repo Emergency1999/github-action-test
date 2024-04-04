@@ -21,5 +21,5 @@ jobs:
           t2=$(echo ${{ github.job }} | cut -d'-' -f2)
           echo "t1 is $t1"
           echo "t2 is $t2"
-          echo "SECRET1: ${{ secrets.SECRET1 }}"
-          echo "VAR1: ${{ env.VAR1 }}"
+          echo "SECRET1: ${{ secrets.SECRET1 }} TEST"
+          echo "VAR1: ${{ vars.VAR1 }}"
